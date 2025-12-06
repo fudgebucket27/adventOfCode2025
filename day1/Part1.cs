@@ -10,11 +10,10 @@
             //Get rotation info
             var rotationDirection = line[0];
             var rotationAmount = Int32.Parse(line.Substring(1, line.Length - 1));
-            //Console.WriteLine($"Turning {rotationDirection} direction, {rotationAmount} amount");
 
+            //ROTATE!
             for (int i = 1; i <= rotationAmount; i++)
             {
-                //Console.WriteLine($"Dial {dialPosition}");
                 if (rotationDirection == 'L')
                 {
                     if (dialPosition == 0)
@@ -39,6 +38,7 @@
                     }
                 }
             }
+
             if (dialPosition == 0)
             {
                 password++;
