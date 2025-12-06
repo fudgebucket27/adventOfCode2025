@@ -1,43 +1,10 @@
-﻿var input = File.ReadAllLines("input.txt");
-var dialPosition = 50;
-var password = 0;
-foreach(var line in input)
+class Program
 {
-    //Get rotation info
-    var rotationDirection = line[0];
-    var rotationAmount = Int32.Parse(line.Substring(1,line.Length-1));
-    //Console.WriteLine($"Turning {rotationDirection} direction, {rotationAmount} amount");
-
-    for(int i = 1; i <= rotationAmount; i++)
+    static void Main(string[] args)
     {
-        //Console.WriteLine($"Dial {dialPosition}");
-        if(rotationDirection == 'L')
-        {
-            if(dialPosition == 0)
-            {
-                dialPosition = 99;
- 
-            }
-            else
-            {
-                dialPosition = dialPosition - 1; 
-            }
-        }
+        if (args.Length > 0 && args[0] == "2")
+            Part2.Run();
         else
-        {
-            if(dialPosition == 99)
-            {
-                dialPosition = 0;
-            }
-            else
-            {
-                dialPosition = dialPosition + 1; 
-            }
-        }
-    }
-    if(dialPosition == 0)
-   {
-      password++;
+            Part1.Run();
     }
 }
-Console.WriteLine($"Password {password}");
